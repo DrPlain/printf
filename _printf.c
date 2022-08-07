@@ -12,7 +12,6 @@ int _printf(const char *format, ...)
 {
 	va_list arg;
 	int i = 0, displayed = 0;
-	char *str;
 
 	va_start(arg, format);
 
@@ -25,25 +24,20 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			i++;
-			switch (format[i])
+			if (format[i + 1] == 'c')
 			{
-				case 'c':
-					_putchar(va_arg(arg, int));
-					displayed++;
-					break;
-				case 's':
-					str = va_arg(arg, char *);
-					displayed = displayed + print_str(str);
-					break;
-				case '%':
-					_putchar('%');
-					displayed++;
-					break;
-				default:
-					_putchar(format[i]);
-					displayed++;
-					break;
+				_putchar(va_arg(arg, int));
+				displayed++, i++;
+			}
+			else if (format[i + 1] == 's')
+			{
+				displayed += print_str(va_arg(arg, char *));
+				i++;
+			}
+			else if (format[i + 1] == '%')
+			{
+				_putchar(format[i]);
+				displayed++, i++;
 			}
 		}
 		i++;
