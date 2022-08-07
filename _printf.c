@@ -2,7 +2,7 @@
 #include <stdarg.h>
 
 /**
- * _printf - A function that works like standard printf
+ * _printf - A function that works like standard printf function
  * @format: String to print
  * @...: Other arguments
  * Return: Number of characters displayed
@@ -42,10 +42,12 @@ int _printf(const char *format, ...)
 					break;
 				default:
 					_putchar(format[i]);
+					displayed++;
 					break;
 			}
 		}
 		i++;
 	}
 	va_end(arg);
+	return (displayed);
 }
