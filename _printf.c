@@ -3,11 +3,21 @@
 #include <unistd.h>
 #include "main.h"
 
+/**
+ * _putchar_c - prints a character
+ * @c: Character to print
+ * Return: Nothing
+ */
 void _putchar_c(char c)
 {
 	write(1, &c, 1);
 }
 
+/**
+ * print_str - prints a string
+ * @a: string to print
+ * Return: Nothing
+ */
 void print_str(va_list a)
 {
 	char *c;
@@ -18,6 +28,12 @@ void print_str(va_list a)
 		_putchar_c(*c++);
 	}
 }
+
+/**
+ * _putchar - prints a character
+ * @a: Character to print
+ * Return: Nothing
+ */
 void _putchar(va_list a)
 {
 	char c;
@@ -25,6 +41,11 @@ void _putchar(va_list a)
 	c = va_arg(a, int);
 	write(1, &c, 1);
 }
+
+/**
+ * print_int - prints a number
+ * Return: Nothing
+ */
 void print_int(void)
 {
 

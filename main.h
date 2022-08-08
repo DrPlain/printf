@@ -1,9 +1,18 @@
 #ifndef _MAIN_H_
 #define _MAIN_H_
 #include <stdarg.h>
-typedef struct Cspecs {
+
+/**
+ * struct Cspecs - structure defining format specifiers
+ * and function to print them
+ * @cs: Format type
+ * @f: Function pointer
+ */
+
+typedef struct Cspecs
+{
 		char cs;
-			void (*f)();
+		void (*f)();
 } cs_t;
 
 void _putchar_c(char c);
